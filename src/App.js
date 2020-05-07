@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, withRouter, Link } from "react-router-dom";
+import Hooks from "./components/Hooks";
+import HooksForms from "./components/HooksForms";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+        <li>
+          <Link to="/hooks">Hooks</Link>
+        </li>
+        <li>
+          <Link to="/hooksforms">Forms Using Hooks</Link>
+        </li>
+      </ul>
+      <Route
+        exact
+        path='/hooks'
+        component={Hooks}>
+      </Route>
+      <Route
+        exact 
+        path='/hooksForms'
+        component={HooksForms}>
+      </Route>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
